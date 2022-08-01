@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ServiceTypes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">
+        <h1>Сервисные услуги</h1>
+    </a>
+</nav>
+<br/>
+<br/>
+<table class="table">
+    <thead class="thead-default">
+    <tr>
+        <th>ID сервисной услуги</th>
+        <th>Наименование</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="sertype : ${serTypeList}">
+        <td th:text="${sertype.id_service_type}"></td>
+        <td th:text="${sertype.service_name}"></td>
+        <td>
+<!--            <a th:href="@{'/edit_client/' + ${client.id_client}}">Изменить</a>-->
+        </td>
+    </tbody>
+</table>
+<br/>
+<br/>
+<button type="button" class="btn btn-primary" style="margin: 20px;">
+    <a href="/goIndex4" style="color: white;">На главную</a>
+</button>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Computer</title>
+</head>
+<body>
+<h1>Добавить компьютер</h1>
+<form action="#" th:action="@{/saveComputer}" th:object="${computer}" method="post">
+    <table>
+    <tr>
+            <td>ID компьютера</td>
+            <td><input type="number" th:field="*{id_computer}"/></td>
+        </tr>
+        <tr>
+            <td>Название</td>
+            <td><input type="text" th:field="*{comp_name}"/></td>
+        </tr>
+        <tr>
+            <td>Серийный номер</td>
+            <td><input type="text" th:field="*{serial_number}"/></td>
+        </tr>
+        <tr>
+    <tr>
+        <td>Гарантия</td>
+        <td><input type="number" th:field="*{guarantee}"/></td>
+    </tr>
+    <tr>
+            <td colspan="2"><button type="submit">Добавить компьютер</button></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

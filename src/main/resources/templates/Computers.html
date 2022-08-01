@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Computers</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">
+        <h1>Компьютеры</h1>
+    </a>
+</nav>
+<br/>
+<br/>
+<table class="table">
+    <thead class="thead-default">
+    <thead>
+    <tr>
+        <th>ID компьютера</th>
+        <th>Наименование компьютера</th>
+        <th>Серийный номер</th>
+        <th>Гарантия</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="computer : ${compList}">
+        <td th:text="${computer.id_computer}"></td>
+        <td th:text="${computer.comp_name}"></td>
+        <td th:text="${computer.serial_number}"></td>
+        <td th:text="${computer.guarantee}"></td>
+        <td>
+            <a th:href="@{'/edit_computer/' + ${computer.id_computer}}">Изменить</a>
+        </td>
+    </tbody>
+</table>
+<br/>
+<br/>
+<button type="button" class="btn btn-primary" style="margin: 20px;">
+    <a href="/goIndex3" style="color: white;">На главную</a>
+</button>
+</body>
+</html>

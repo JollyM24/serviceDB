@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
+<head>
+    <meta charset="UTF-8">
+    <title>Clients</title>
+</head>
+<body>
+<nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">
+        <h1>Клиенты</h1>
+    </a>
+</nav>
+<br/>
+<br/>
+<button type="button" class="btn btn-primary" style="margin: 20px;">
+    <a href="/newClient" style="color: white;">Добавить клиента</a>
+</button>
+<br/>
+<div>
+    <form th:action="@{/Clients}">
+        <input type="hidden" name="sortField" th:value="${sortField}" />
+        Искать:
+        <input type="text" name="keyword" th:value="${keyword}" required/>
+        &nbsp;
+        <input type="submit" value="Поиск"/>
+        &nbsp;
+        <input type="button" value="Очистить" onclick="clearFilter()"/>
+    </form>
+</div>
+
+<table class="table">
+    <thead class="thead-default">
+    <tr>
+        <th>
+            <a>
+                ID клиента
+            </a>
+        </th>
+        <th>ФИО</th>
+        <th>Телефонный номер</th>
+        <th>Почта</th>
+        <th>Опции</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="client : ${clientList}">
+        <td th:text="${client.id_client}"></td>
+        <td th:text="${client.name}"></td>
+        <td th:text="${client.phone_number}"></td>
+        <td th:text="${client.email}"></td>
+        <td>
+            <a th:href="@{'/edit_client/' + ${client.id_client}}">Изменить</a>
+        </td>
+    </tbody>
+</table>
+<br/>
+<br/>
+<button type="button" class="btn btn-primary" style="margin: 20px;">
+    <a href="/goIndex" style="color: white;">На главную</a>
+</button>
+
+<script type="text/javascript">
+    function clearFilter(){
+        window.location = '/Clients';
+    }
+</script>
+</body>
+</html>

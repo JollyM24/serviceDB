@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Edit</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">
+        <h1>Изменить заказ</h1>
+    </a>
+</nav>
+<form action="#" th:action="@{/saveOrder}" th:object="${order}" method="post">
+    <table>
+        <tr>
+            <td>ID заказа</td>
+            <td><input type="number" th:field="*{id_order}" readonly = "readonly"/></td>
+        </tr>
+        <tr>
+            <td>ID компьютера</td>
+            <td><input type="number" th:field="*{id_computer}"/></td>
+        </tr>
+        <tr>
+            <td>ID специалиста</td>
+            <td><input type="number" th:field="*{id_specialist}"/></td>
+        </tr>
+        <tr>
+            <td>ID услуги</td>
+            <td><input type="number" th:field="*{id_service_type}"/></td>
+        </tr>
+        <tr>
+            <td>Дата начала</td>
+            <td><input type="text" th:field="*{start_date}"/></td>
+        </tr>
+        <tr>
+            <td>Дата окончания</td>
+            <td><input type="text" th:field="*{end_date}"/></td>
+        </tr>
+        <tr>
+            <td>Завершён</td>
+            <td><input type="text" th:field="*{is_completed}"/></td>
+        </tr>
+        <tr>
+            <td>Цена</td>
+            <td><input type="number" th:field="*{price}"/></td>
+        </tr>
+        <tr>
+            <td colspan="2"><button type="submit">Сохранить изменения</button></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

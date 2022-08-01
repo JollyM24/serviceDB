@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Client Edit</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">
+        <h1>Изменить компьютер</h1>
+    </a>
+</nav>
+<form action="#" th:action="@{/saveComputer}" th:object="${computer}" method="post">
+    <table>
+        <tr>
+            <td>ID компьютера</td>
+            <td><input type="number" th:field="*{id_computer}" readonly = "readonly"/></td>
+        </tr>
+        <tr>
+            <td>Наименование</td>
+            <td><input type="text" th:field="*{comp_name}"/></td>
+        </tr>
+        <tr>
+            <td>Серийный номер</td>
+            <td><input type="text" th:field="*{serial_number}"/></td>
+        </tr>
+        <tr>
+            <td>Гарантия</td>
+            <td><input type="number" th:field="*{guarantee}"/></td>
+        </tr>
+        <tr>
+            <td colspan="2"><button type="submit">Сохранить изменения</button></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

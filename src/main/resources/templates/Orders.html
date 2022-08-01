@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Orders</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">
+        <h1>Заказы</h1>
+    </a>
+</nav>
+<br/>
+<button type="button" class="btn btn-primary" style="margin: 20px;">
+    <a href="/newOrder" style="color: white;">Добавить заказ</a>
+</button>
+<br/>
+<br/>
+<table class="table">
+    <thead class="thead-default">
+    <tr>
+        <th>ID заказа</th>
+        <th>ID компьютера</th>
+        <th>ID специалиста</th>
+        <th>ID услуги</th>
+        <th>Дата начала</th>
+        <th>Дата окончания</th>
+        <th>Завершён</th>
+        <th>Цена</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="order : ${orderList}">
+        <td th:text="${order.id_order}"></td>
+        <td th:text="${order.id_computer}"></td>
+        <td th:text="${order.id_specialist}"></td>
+        <td th:text="${order.id_service_type}"></td>
+        <td th:text="${order.start_date}"></td>
+        <td th:text="${order.end_date}"></td>
+        <td th:text="${order.is_completed}"></td>
+        <td th:text="${order.price}"></td>
+        <td>
+            <a th:href="@{'/edit_order/' + ${order.id_order}}">Изменить</a>
+            &nbsp;&nbsp;&nbsp;
+            <a th:href="@{'/delete_order/' + ${order.id_order}}">Удалить</a>
+        </td>
+    </tbody>
+</table>
+<br/>
+<br/>
+<button type="button" class="btn btn-primary" style="margin: 20px;">
+    <a href="/goIndex2" style="color: white;">На главную</a>
+</button>
+<br/>
+<br/>
+</body>
+</html>
